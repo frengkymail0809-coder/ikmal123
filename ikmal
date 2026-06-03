@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Creative Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff4d6d; /* Warna pink/merah sesuai bibir di foto */
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+            --text-gray: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1920x1080/?art,fashion');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .profile-main {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            object-fit: cover;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        #home h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        #home p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; }
+
+        /* --- SECTIONS COMMON --- */
+        section { padding: 100px 10% 60px; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-title h2::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+        }
+
+        /* --- ABOUT & SKILLS --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .bar-container {
+            background: #eee;
+            height: 10px;
+            border-radius: 5px;
+        }
+        .bar-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- SERVICES --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .service-box {
+            padding: 40px;
+            text-align: center;
+            background: var(--light-color);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .service-box:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+        .service-box i { font-size: 3rem; margin-bottom: 20px; }
+
+        /* --- GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .gallery-grid img:hover { opacity: 0.7; }
+
+        /* --- CONTACT --- */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        .form-group { margin-bottom: 20px; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-container { grid-template-columns: 1fr; }
+            #home h1 { font-size: 2.2rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GLAM-PORTFOLIO</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#portfolio">Galeri</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <img src="Poto profil.jpg" alt="Profile" class="profile-main">
+        <h1>ikmal</h1>
+        <p>Saya adalah seorang Digital Artist yang fokus pada estetika unik, berani, dan penuh gaya.</p>
+        <a href="#contact" class="btn-submit" style="width: auto; text-decoration: none;">Ayo Mulai Project!</a>
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>Tentang Saya</h2>
+        </div>
+        <div class="about-container">
+            <div>
+                <h3>Siapa Saya?</h3>
+                <p>Saya percaya bahwa seni harus mengejutkan. Dengan pengalaman di dunia digital kreatif, saya membantu brand dan individu menonjol dengan visual yang tak terlupakan.</p>
+                <p>Visi saya adalah membawa humor dan kemewahan ke dalam satu bingkai yang harmonis.</p>
+            </div>
+            <div class="skills">
+                <div class="skill-bar">
+                    <div class="skill-info"><span>Digital Art</span><span>95%</span></div>
+                    <div class="bar-container"><div class="bar-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info"><span>Retouching</span><span>90%</span></div>
+                    <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info"><span>Creative Direction</span><span>85%</span></div>
+                    <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: #fdfdfd;">
+        <div class="section-title">
+            <h2>Layanan Kami</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fas fa-magic"></i>
+                <h3>Digital Edit</h3>
+                <p>Transformasi foto biasa menjadi karya seni surealis yang menarik perhatian.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Brand Identity</h3>
+                <p>Membangun identitas visual yang kuat dan berkarakter unik.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-camera-retro"></i>
+                <h3>Art Direction</h3>
+                <p>Mengarahkan konsep visual untuk photoshoot atau kampanye media sosial.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-title">
+            <h2>Hasil Karya</h2>
+        </div>
+        <div class="gallery-grid">
+            <img src="Poto profil.jpg" alt="Work 1">
+            <img src="https://source.unsplash.com/random/400x400/?neon,makeup" alt="Work 2">
+            <img src="https://source.unsplash.com/random/400x400/?fashion,model" alt="Work 3">
+            <img src="https://source.unsplash.com/random/400x400/?duck,art" alt="Work 4">
+            <img src="https://source.unsplash.com/random/400x400/?glamour" alt="Work 5">
+            <img src="https://source.unsplash.com/random/400x400/?abstract" alt="Work 6">
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Hubungi Saya</h2>
+        </div>
+        <div class="contact-content">
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Alamat Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Pesan Anda..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Creative Glam Studio. All Rights Reserved.</p>
+        <div style="margin-top: 10px;">
+            <i class="fab fa-instagram"></i> &nbsp; <i class="fab fa-tiktok"></i> &nbsp; <i class="fab fa-twitter"></i>
+        </div>
+    </footer>
+
+</body>
+</html>
+
